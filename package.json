@@ -1,0 +1,12 @@
+{
+  "amd": {},
+  "volo": {
+    "baseUrl": "client/js/libs",
+    "dependencies": {
+      "require": "github:jrburke/requirejs/2.1.2"
+    }
+  },
+  "dependencies": {
+    "requirejs": "~2.1.2"
+  }
+}
