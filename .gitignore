@@ -1,5 +1,5 @@
 # DIRECTORIES #
 ###############
-node-modules
-client/js/libs
-dist
+node-modules/
+client/js/libs/
+dist/
