@@ -6,6 +6,7 @@
     "start": "./node_modules/.bin/volo start",
     "build": "./node_modules/.bin/volo build"
   },
+  "bin": { "volo": "./node_modules/.bin/volo" },
   "dependencies": {
     "volo": "~0.2.6",
     "volo-appcache": "0.0.2",
