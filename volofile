@@ -1,0 +1,21 @@
+module.exports = {
+	start: {
+		summary: 'Starts a static file server and proxy server for API endpoints running on port 8080',
+		run: function(d, v){
+			var spawn_options = { useConsole: true };
+			v.spawn('n.static', ['client', '-p 3000', '-H {"Cache-Control": "no-cache, must-revalidate"}'], spawn_options);
+			v.shell('n.node-http-proxy --port 8080 --config "proxy-config.json"');
+			console.log('Server running on port 8080. Proxying requests to /api to port 4000');
+			d.resolve();
+		}
+	},
+	test: function(d, v){
+		
+	},
+	build: {
+		summary: 'Concats and minifys all assets outputs the distribution to /dist',
+		run: function(d, v){
+			v.spawn('n.r.js', ['-o', 'app.build.js'], { useConsole: true });
+		}
+	}
+};

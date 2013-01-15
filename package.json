@@ -1,12 +1,34 @@
 {
+  "name": "Scaffold-App",
+  "version": "0.0.1",
+  "scripts": {
+    "postInstall": "./node_modules/.bin/volo install",
+    "start": "./node_modules/.bin/volo start",
+    "build": "./node_modules/.bin/volo build"
+  },
+  "dependencies": {
+    "volo": "~0.2.6",
+    "volo-appcache": "0.0.2",
+    "css-compressor": "~1.0.0",
+    "uglify-js": "~2.2.3"
+  },
+  "devDependencies": {
+    "yuidocjs": "~0.3.35",
+    "mocha-phantomjs": "~1.1.2",
+    "node-static": "~0.6.7",
+    "cucumber": "~0.3.0",
+    "http-proxy": "~0.8.7"
+  },
   "amd": {},
   "volo": {
     "baseUrl": "client/js/libs",
     "dependencies": {
-      "require": "github:jrburke/requirejs/2.1.2"
+      "ember": "github:emberjs/ember.js/v0.9.8",
+      "zepto": "github:madrobby/zepto/v0.8",
+      "underscore.string": "github:epeli/underscore.string/v2.3.1",
+      "require": "github:jrburke/requirejs/2.1.2",
+      "Modernizr": "github:Modernizr/Modernizr/v2.6.2",
+      "json2": "github:douglascrockford/JSON-js/master"
     }
-  },
-  "dependencies": {
-    "requirejs": "~2.1.2"
   }
 }

@@ -1,0 +1,124 @@
+/*
+	ToDo:
+
+	1. Write a css parser and optimizer. Instead of only stripping whitespace,
+	comments etc perform declaration minification by building a new set of
+	styling rules via recursively finding the intersection the current rules,
+	until there are no more intersecting rules.
+	Look at using https://github.com/tabatkins/css-parser to parse css.
+
+	This file is for dev purposes only, in production all the `@import` rules 
+	will be parsed and all the `.css` files will be compiled into one optimized
+	stylesheet. This is so only `core.css` is needed on the page to inclued all 
+	styles in both dev and production.
+
+	**Conventions**
+
+	1. Keep the styling for different sections of content in seperate files.
+	try and keep it so a css file has a one on one association with a template.
+
+	2. Only use the core.css file to list `@import` declarations for all the required 
+	stylesheets. Do not put styling rules in this file. Do not put `@import`
+	declarations in any other stylesheets.
+
+	3. For global styling rules use the `globals.css` stylsheet. Unless the 
+	styles are particularly lengthy, in which case use an external stylesheet,
+	try to use filenames that make their purpose obvious.
+
+	4. Keep all rules with a single style declarations on one line. For anything 
+	else use a seperate line for each declaration.
+	e.g
+		.foo { padding: 1em; }
+		.bar {
+			border: 2em;
+			height: 5em;
+		}
+
+	5. Try and declare styles of elements in the order they appear in the `HTML`.
+	Indent the styles of children elements in the same way you would HTML. 
+	For example.. the following..
+
+	HTML:
+
+		<div class="foo">
+			<a class="bar">
+				<span class="title">example</a>
+				<img src="example.jpg" />
+			</a>
+		</div>
+
+	Would have the corresponding...
+
+	CSS:
+
+		.foo { background: red; }
+			.foo .bar { text-decoration: none; }
+				.foo .title { font-size: 1em; }
+				.foo img 	{ width: 50%; }
+
+	6. Always use the `em` unit of measurement over pixels (or any other 
+	relative unit that makes sense for the use case). Excepetions only exist
+	for things like subtle shading styles that should not increase relative the 
+	element size. e.g. the inset shadow on a recessed looking button does not need 
+	to increase in size with the element size, and any increase would destroy the 
+	button style.
+
+	7. Put IE hacks in the ie.css file, do not put them anywhere else.
+
+	8. When assigning multiple selectors to a style rule always put new selector sets
+	on a new line. With the exception of tag selectors wich can live on the same line.
+	But try and group the lines by type, and always put the openening bracket 
+	on a new line.
+		e.g.
+			
+			Good:
+				// Multiple types, multiple tags
+				
+				h1, h2, h3, h4, h5, h6, // Headings
+				span, quote, li, a,		// Inline elements
+				p, blockquote, ul, nav 	// Block Elements
+				{ 
+					text-align: left;
+				}
+				
+				// Single type, mutliple tags, single declaration.
+				
+				h1, h2, h3, h4, h5, h6 { padding: 1em; }
+				
+				// Selectors
+				
+				.foo,
+				.bar,
+				#example {
+					text-align: left;
+				}
+
+			Bad:
+				// Mixed types, multiple tags, single line
+				
+				h1, h2, h3, h4, h5, h6, span, quote, li, a, p, blockquote, ul, nav {
+					text-align: left;
+				}
+				
+				// Selectors, Single line
+				
+				.foo, .bar, #example {
+					text-align: left; 
+				}
+
+	9. Always ommit the `0` from decimals e.g. `font-size: .7em` as opposed to `font-size: 0.7em`.
+
+	10. Comment your styles........
+
+*/
+
+/* 
+
+	Always put fonts in the `/fonts` directory put `@import` rules in the `fonts.css` to load in the required fonts.
+
+	See /fonts/fonts.css for more information.
+
+ */
+
+@import url(normalize.css);
+

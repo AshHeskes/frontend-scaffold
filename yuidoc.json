@@ -1,0 +1,12 @@
+{
+  "name": "Change Me",
+  "description": "YUIDoc documentation tool written in Javascript",
+  "version": "0.0.0",
+  "options": {
+    "linkNatives": "true",
+    "attributesEmit": "true",
+    "paths": ["./client/js"],
+    "exclude": "libs",
+    "outdir": "./docs"
+  }
+}
