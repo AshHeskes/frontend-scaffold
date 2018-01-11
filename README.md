@@ -14,7 +14,7 @@ The only hard dependency is [node](http://nodejs.org) and [npm](http://npmjs.org
 
 Needs a test runner implementation for phantomjs.
 
-[mocha](http://visionmedia.github.com/mocha/) *Unit tests*
+[mocha](http://mochajs.org/) *Unit tests*
 
 [cucumber](https://github.com/cucumber/cucumber-js) *Integration tests*
 
